@@ -6,7 +6,10 @@ def solve_rk2(f ,t0 ,t_end, y0, h):
     #t0 is the start time 
     #t_end is the final time 
     #y0 is the intial condition at t0 
-    #h is the step size 
+    #h is the step size
+
+    if h <= 0:
+        raise ValueError("Step size must be positive.")
 
     #N is number of time stamps 
     N = int((t_end -t0)/ h)
