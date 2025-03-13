@@ -11,7 +11,7 @@ L = 0.001  # Inductance in Henry
 Amp = 10.0
 alpha = 0.5
 TimePeriod = 0.001
-cycles = 20
+cycles = 2
 R_values = np.linspace(5, 20, 10)  # Range of resistance values
 
 # Define C function prototypes
@@ -42,7 +42,7 @@ for R in R_values:
     i = np.array(current)
     
     # Plot current variation with time and resistance
-    ax.plot(T[R_values == R][0], R * np.ones_like(T[R_values == R][0]), i, label=f'R={R:.1f} Ω')
+    ax.plot(T[R_values == R][0], R * np.ones_like(T[R_values == R][0]), i*R, label=f'R={R:.1f} Ω')
 
 ax.set_xlabel('Time (s)')
 ax.set_ylabel('Resistance (Ω)')
