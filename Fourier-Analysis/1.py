@@ -7,10 +7,10 @@ rl_lib = ctypes.CDLL("./rl_fourier.so")
 
 # Define parameters
 N = 1000 #Number of harmonics(Odd+Even:Considering only odd) to be considered
-V0 = 1.0 #Voltage-Amplitude
-T = 50 #Time-period
-R = 1.0 #Resistance
-L = 0.1 #INductance
+V0 = 10 #Voltage-Amplitude
+T = 5 #Time-period
+R = 100.0 #Resistance
+L = 10 #INductance
 num_points = 1000 #Number of 
 num_cycles=2 #Number of cycles to be displayed
 
