@@ -1,4 +1,3 @@
-# Import necessary modules
 import numpy as np
 import matplotlib.pyplot as plt
 from rk2 import solve_rk2
