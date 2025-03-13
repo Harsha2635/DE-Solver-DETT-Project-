@@ -12,7 +12,7 @@ Amp = 10.0
 alpha = 0.5
 TimePeriod = 0.001
 cycles = 20
-R_values = np.linspace(1, 5, 10)  # Range of resistance values
+R_values = np.linspace(5, 20, 10)  # Range of resistance values
 
 # Define C function prototypes
 lib.Signal.argtypes = [ctypes.c_float, ctypes.c_double, ctypes.c_float, ctypes.c_int, ctypes.POINTER(ctypes.c_float)]
