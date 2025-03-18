@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 lib = ctypes.CDLL('./func.so')  # Compile your C code as a shared library
 
 SAMPLES = 100000
-R =  10# Resistance in Ohms
-L = 0.001  # Inductance in Henry
-Amp = 2.0
+R =  100000# Resistance in Ohms
+L = 1  # Inductance in Henry
+Amp = 10.0
 alpha = 0.5
 TimePeriod = 0.001
 cycles = 20
@@ -38,5 +38,6 @@ plt.ylabel('Current (A)')
 plt.title('Current in RL Circuit')
 plt.legend()
 plt.grid()
+plt.savefig("../figs/RL_Analysis/d_Rbig.png")
 plt.show()
 
