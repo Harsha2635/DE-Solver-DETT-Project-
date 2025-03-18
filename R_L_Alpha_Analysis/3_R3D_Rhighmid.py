@@ -11,8 +11,8 @@ L = 0.001  # Inductance in Henry
 Amp = 10.0
 alpha = 0.5
 TimePeriod = 0.001
-cycles = 2
-R_values = np.linspace(5, 20, 10)  # Range of resistance values
+cycles = 6
+R_values = np.linspace(5, 20, 5)  # Range of resistance values
 
 # Define C function prototypes
 lib.Signal.argtypes = [ctypes.c_float, ctypes.c_double, ctypes.c_float, ctypes.c_int, ctypes.POINTER(ctypes.c_float)]
@@ -46,7 +46,8 @@ for R in R_values:
 
 ax.set_xlabel('Time (s)')
 ax.set_ylabel('Resistance (Ω)')
-ax.set_zlabel('Current (A)')
-ax.set_title('Current Variation in RL Circuit with Changing Resistance')
+ax.set_zlabel('Voltage across R (V)')
+ax.set_title('Voltage Variation across R in RL Circuit with Changing Resistance')
+plt.savefig("../figs/RL_Analysis/3_R3D_Rhighmid.png")
 plt.show()
 
