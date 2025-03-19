@@ -2,14 +2,14 @@
 #include <math.h>
 #include <stdlib.h>
 
-#define TOL 1e-6  // Corrected preprocessor directive
+#define TOL 1e-6  
 
 // Define the differential equation
 double f(double t, double i, double V0, double R, double L) {
     return (V0 - R * i) / L;
 }
 
-// Newton method to compute the next step using implicit equation
+// Newton method to compute the next step 
 double solve(double t_next, double i_n, double h, double V0, double R, double L) {
     double i_next = i_n; // Initial guess
     double F, dF;
@@ -27,10 +27,10 @@ double solve(double t_next, double i_n, double h, double V0, double R, double L)
     return i_next;
 }
 
-// Backward Euler function
+// BackwardEuler function
 void Backward_euler(double (*f)(double, double, double, double, double), 
                     double t0, double t_end, double i0, double h, 
-                    double V0, double R, double L) {
+                    double V0, double R, double L, double *t_val, double *i_val) {
     
     if (h <= 0) {
         printf("Step size must be positive.\n");
@@ -38,7 +38,6 @@ void Backward_euler(double (*f)(double, double, double, double, double),
     }
 
     int N = (int)((t_end - t0) / h); // Define number of time steps
-    double t_val[N + 1], i_val[N + 1];
 
     // Initialize values
     t_val[0] = t0;
@@ -49,17 +48,5 @@ void Backward_euler(double (*f)(double, double, double, double, double),
         t_val[i + 1] = t_val[i] + h; // Update time step
         i_val[i + 1] = solve(t_val[i + 1], i_val[i], h, V0, R, L); // Solve using Newton's method
     }
-
-    // Write results to file
-    FILE *file = fopen("BackwardEuler_results.txt", "w"); // Changed to text output for clarity
-    if (!file) {
-        printf("Error opening file.\n");
-        return;
-    }
-    
-    for (int i = 0; i <= N; i++) {
-        fprintf(file, "%lf %lf\n", t_val[i], i_val[i]);
-    }
-    
-    fclose(file);
 }
+
